@@ -232,5 +232,27 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Custom cursor logic
+const cursorDot = document.querySelector('.cursor-dot');
+const cursorCircle = document.querySelector('.cursor-circle');
+
+window.addEventListener('mousemove', (e) => {
+  cursorDot.style.left = `${e.clientX}px`;
+  cursorDot.style.top = `${e.clientY}px`;
+  cursorCircle.style.left = `${e.clientX}px`;
+  cursorCircle.style.top = `${e.clientY}px`;
+});
+
+const hoverElements = document.querySelectorAll('a, .btn, .service-box, .filter-btn, .portfolio-box img, .skill-icon');
+
+hoverElements.forEach((el) => {
+  el.addEventListener('mouseenter', () => {
+    cursorCircle.classList.add('expand');
+  });
+  el.addEventListener('mouseleave', () => {
+    cursorCircle.classList.remove('expand');
+  });
+});
+
 
 
